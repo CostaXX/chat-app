@@ -22,7 +22,7 @@ public class ApiController {
     private final UserService userService;
 
     @GetMapping("/online-users")
-    public List<User> getOnlineUsers(@RequestParam String param) {
+    public List<User> getOnlineUsers() {
         return userService.getOnlineUsers();
     }
     

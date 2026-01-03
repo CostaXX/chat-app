@@ -69,7 +69,7 @@
 
             <!-- Existing messages -->
             <div th:each="message : ${messages}">
-                <div th:if="${message.type.name() == 'CHAT'}"
+                <div th:if="${message.messageType.name() == 'CHAT'}"
                      class="message" th:classappend="${message.sender.username == currentUser.username} ? 'own' : ''">
                     <div class="message-avatar" th:style="'background-color: ' + ${message.sender.avatarColor}"
                          th:text="${message.sender.username.substring(0,1).toUpperCase()}"></div>
@@ -82,10 +82,10 @@
                         <div class="message-time" th:text="${#temporals.format(message.timestamp, 'HH:mm')}"></div>
                     </div>
                 </div>
-                <div th:if="${message.type.name() == 'JOIN'}" class="system-message">
+                <div th:if="${message.messageType.name() == 'JOIN'}" class="system-message">
                     <i class="fas fa-user-plus"></i> <span th:text="${message.sender.username}"></span> joined the chat
                 </div>
-                <div th:if="${message.type.name() == 'LEAVE'}" class="system-message">
+                <div th:if="${message.messageType.name() == 'LEAVE'}" class="system-message">
                     <i class="fas fa-user-minus"></i> <span th:text="${message.sender.username}"></span> left the chat
                 </div>
             </div>
